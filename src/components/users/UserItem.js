@@ -1,6 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-const UserItem = (props) => {
+const UserItem = ({ user: { login, avatar_url, html_url } }) => {
   const { login, avatar_url, html_url } = props.user;
 
   return (
@@ -12,6 +13,11 @@ const UserItem = (props) => {
       </div>
     </div>
   )
+}
+
+Users.propTypes = {
+  users: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired,
 }
 
 export default UserItem
